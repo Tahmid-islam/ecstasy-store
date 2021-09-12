@@ -1,3 +1,4 @@
+//load data from API
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
@@ -16,9 +17,9 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-      <div class="card h-100 shadow">
+      <div class="card h-100 shadow-sm">
       <img src='${image}' class="card-img-top img-fluid product-image mx-auto"  alt="...">
-      <div class="card-body h-100">
+      <div class="card-body p-2">
         <h5 class="card-title mb-3">${product.title}</h5>
         <div class="card-text">
          <p>${product.category}<p>
@@ -36,6 +37,8 @@ const showProducts = (products) => {
     container.appendChild(div);
   }
 };
+
+//count total item of cart
 let count = 0;
 const addToCart = (price) => {
   count = count + 1;
@@ -45,6 +48,7 @@ const addToCart = (price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+//get input value function
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
