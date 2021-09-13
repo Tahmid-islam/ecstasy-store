@@ -11,7 +11,6 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    // console.log(product);
     const { image, title, category, price, rating } = product; // destructuring objects
 
     //This expressions returns the first 25 (any) characters plus any subsequent non-space characters.
@@ -21,14 +20,14 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-      <div class="card h-100 shadow-sm border border-danger rounded-3">
+      <div class="card h-100 shadow-sm rounded-3">
       <img src='${image}' class="card-img-top img-fluid product-image mx-auto"  alt="...">
       <div class="card-body p-2">
         <h5 class="card-title mb-3 text-wrap">${newTitle}</h5>
         <div class="card-text">
          <p>${category}<p>
          <h5>$ ${price}</h5>
-         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> ${rating.rate}  &nbsp; &nbsp; <i class="fas fa-user"></i> ${rating.count} Ratings</p>
+         <p>Average Rating: ${rating.rate} <i class="fas fa-star"></i> &nbsp;&nbsp; (<i class="fas fa-user"></i> ${rating.count} Ratings)</p>
          </div>
         </div>
         <div class="card-footer">
@@ -75,9 +74,6 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
-  if (priceConverted < 200) {
-    setInnerText("delivery-charge", 20);
-  }
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", (priceConverted * 0.2).toFixed(2));

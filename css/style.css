@@ -1,12 +1,13 @@
 body {
   background-color: #ecf0f1;
 }
+
 .product-image {
   width: 200px;
   height: 200px;
 }
-.fas,
-.far {
+
+.fas {
   color: gold;
 }
 
@@ -18,24 +19,26 @@ body {
   background-color: rgb(255, 250, 250);
 }
 
-.card:hover,
-.cart:hover {
-  border: 1px solid;
-  padding: 3px;
+.card:hover {
+  border: 3px solid #dc3545;
+  border-radius: 10px;
+  padding: 2px;
   box-shadow: 5px 10px #888888;
-  background-color: #ecf0f1;
 }
 
 .cart {
   background-color: rgb(255, 250, 250);
+  border: none;
 }
 
-.cart-button {
+.cart-button,
+.search {
   background-color: #4b6584;
   color: white;
 }
 
-.cart-button:hover {
+.cart-button:hover,
+.search:hover {
   background-color: #3e4e61;
   color: white;
 }
