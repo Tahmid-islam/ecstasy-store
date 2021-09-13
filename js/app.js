@@ -12,10 +12,6 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const { image, title, category, price, rating } = product; // destructuring objects
-
-    //This expressions returns the first 25 (any) characters plus any subsequent non-space characters.
-    const newTitle = title.replace(/^(.{25}[^\s]*).*/, "$1");
-
     const container = document.getElementById("row");
     const div = document.createElement("div");
     div.classList.add("col");
@@ -23,7 +19,7 @@ const showProducts = (products) => {
       <div class="card h-100 shadow-sm rounded-3">
       <img src='${image}' class="card-img-top img-fluid product-image mx-auto"  alt="...">
       <div class="card-body p-2">
-        <h5 class="card-title mb-3 text-wrap">${newTitle}</h5>
+        <h5 class="card-title mb-3 text-wrap">${title}</h5>
         <div class="card-text">
          <p>${category}<p>
          <h5>$ ${price}</h5>
@@ -74,9 +70,6 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
-  if (priceConverted < 200) {
-    setInnerText("delivery-charge", 20);
-  }
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", (priceConverted * 0.2).toFixed(2));
