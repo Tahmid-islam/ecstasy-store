@@ -11,8 +11,8 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    console.log(product);
-    const { image, title, category, price, rating } = product; // destructuring the objects
+    // console.log(product);
+    const { image, title, category, price, rating } = product; // destructuring objects
 
     //This expressions returns the first 25 (any) characters plus any subsequent non-space characters.
     const newTitle = title.replace(/^(.{25}[^\s]*).*/, "$1");
