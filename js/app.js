@@ -12,24 +12,28 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     console.log(product);
-    const image = product.image;
+    const { image, title, category, price, rating } = product; // destructuring the objects
+
+    //This expressions returns the first 25 (any) characters plus any subsequent non-space characters.
+    const newTitle = title.replace(/^(.{25}[^\s]*).*/, "$1");
+
     const container = document.getElementById("row");
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm border border-danger rounded-3">
       <img src='${image}' class="card-img-top img-fluid product-image mx-auto"  alt="...">
       <div class="card-body p-2">
-        <h5 class="card-title mb-3">${product.title}</h5>
+        <h5 class="card-title mb-3 text-wrap">${newTitle}</h5>
         <div class="card-text">
-         <p>${product.category}<p>
-         <h5>$ ${product.price}</h5>
-         <p>Rating: <i class="fas fa-star"></i> ${product.rating.rate} out of ${product.rating.count} user</p>
+         <p>${category}<p>
+         <h5>$ ${price}</h5>
+         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> ${rating.rate}  &nbsp; &nbsp; <i class="fas fa-user"></i> ${rating.count} Ratings</p>
          </div>
         </div>
         <div class="card-footer">
-      <button onclick="addToCart(${product.price})"  class="btn btn-success">Add to cart</button>
-      <button class="btn btn-danger">Details</button>
+      <button onclick="addToCart(${price})"  class="btn cart-button"><i class="fas fa-shopping-cart text-white"></i> Add to cart</button>
+      <button class="btn btn-danger"><i class="fas fa-info-circle text-white"></i> Details</button>
       </div>
       </div>
     </div>
@@ -71,6 +75,9 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
+  if (priceConverted < 200) {
+    setInnerText("delivery-charge", 20);
+  }
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", (priceConverted * 0.2).toFixed(2));

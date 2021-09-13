@@ -31,15 +31,15 @@
     ></script>
   </head>
 
-  <body class="mx-4">
+  <body>
     <!-- header section -->
     <header>
-      <h1 class="pt-2 text-center text-danger">ECSTASY STORE</h1>
+      <h1 class="p-2 text-center text-white bg-dark">ECSTASY STORE</h1>
     </header>
     <!-- main section -->
-    <main class="main">
+    <main class="main mx-4">
       <!-- search bar -->
-      <div class="input-group mb-3 container w-50 p-4">
+      <div class="input-group mx-auto w-50 pb-4 pt-2">
         <input
           type="text"
           class="form-control"
@@ -53,6 +53,7 @@
           id="button-addon2"
           onclick="loadProducts()"
         >
+          <i class="fas fa-search text-white"></i>
           Search
         </button>
       </div>
@@ -73,7 +74,8 @@
               shadow-lg
               border border-2 border-danger
               p-2
-              bg-white
+              cart
+              rounded-3
             "
           >
             <table class="table">
@@ -112,20 +114,23 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <th scope="row">Total</th>
+                  <th scope="row">Total:</th>
                   <td colspan="2">$ <span id="total">0</span></td>
                   <td></td>
                 </tr>
               </tbody>
             </table>
             <div class="parce text-center">
-              <button class="btn btn-danger text-center">Buy Now</button>
+              <button class="btn btn-danger text-center">
+                <i class="fas fa-shopping-bag text-white"></i> Buy Now
+              </button>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer>
+
+    <footer class="bg-dark text-white">
       <!-- Copyright -->
       <div class="text-center pt-4 pb-2">
         <p class="fw-bold">
@@ -133,7 +138,6 @@
           DEVELOPED BY TAHMID.
         </p>
       </div>
-      <!-- Copyright -->
     </footer>
 
     <!-- bootstrap script -->

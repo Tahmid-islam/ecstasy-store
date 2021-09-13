@@ -5,6 +5,37 @@ body {
   width: 200px;
   height: 200px;
 }
-.fas {
+.fas,
+.far {
   color: gold;
+}
+
+.fa-user {
+  color: black;
+}
+
+.card {
+  background-color: rgb(255, 250, 250);
+}
+
+.card:hover,
+.cart:hover {
+  border: 1px solid;
+  padding: 3px;
+  box-shadow: 5px 10px #888888;
+  background-color: #ecf0f1;
+}
+
+.cart {
+  background-color: rgb(255, 250, 250);
+}
+
+.cart-button {
+  background-color: #4b6584;
+  color: white;
+}
+
+.cart-button:hover {
+  background-color: #3e4e61;
+  color: white;
 }
